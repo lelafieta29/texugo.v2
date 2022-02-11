@@ -18,6 +18,7 @@ class CreateUtentesTable extends Migration
             $table->string('prioridade');
             $table->enum('genero', ['Masculino', 'Feminino']);
             $table->foreignId('area_medio_id')->constrained('curso_medios')->cascadOnDelete();
+            $table->foreignId('pessoa_id')->constrained('pessoas')->cascadOnDelete();
             $table->timestamps();
         });
     }

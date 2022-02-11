@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilasTable extends Migration
+class CreateUtenteNaFilasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFilasTable extends Migration
      */
     public function up()
     {
-        Schema::create('filas', function (Blueprint $table) {
+        Schema::create('utente_na_filas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('utente_id')->constrained('utentes')->cascadOnDelete();
             $table->foreignId('posto_id')->constrained('postos')->cascadOnDelete();
@@ -28,6 +28,6 @@ class CreateFilasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filas');
+        Schema::dropIfExists('utente_na_filas');
     }
 }

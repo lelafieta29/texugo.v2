@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCandidatosTable extends Migration
+class CreateEnderecosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCandidatosTable extends Migration
      */
     public function up()
     {
-        Schema::create('candidatos', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
-            $table->foreignId('utente_id')->constrained('utentes')->cascadOnDelete();
+            $table->foreignId('candidato_id')->constrained('candidatos')->cascadOnDelete();
+            $table->foreignId('municipio_id')->constrained('municipios')->cascadOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCandidatosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('candidatos');
+        Schema::dropIfExists('enderecos');
     }
 }

@@ -12,15 +12,15 @@ class Bloco extends Model
     protected $fillable = ['nome_do_bloco'];
 
     public function inscricao(){
-        return $this->belongsTo(Inscricao::class);
+        return $this->hasMany(Inscricao::class);
     }
 
     public function maquina(){
-        return $this->belongsTo(Maquina::class);
+        return $this->hasMany(Maquina::class);
     }
 
     public function posto(){
-        return $this->belongsTo(Posto::class);
+        return $this->hasMany(Posto::class);
     }
     
 }
